@@ -1,4 +1,4 @@
-# Feedback React.js
+# Feedback-App React.js
 
 Ce projet est une App de commentaires/avis.
 

@@ -6,6 +6,7 @@ import Header from "./components/Header/Header";
 import FeedbackList from "./components/FeedbackList/FeedbackList";
 import FeedbackData from "./data/FeedbackData";
 import FeedbackStats from "./components/FeedbackStats/FeedbackStats";
+import FeedbackForm from "./components/FeedbackForm/FeedbackForm";
 
 function App() {
     // State
@@ -22,6 +23,7 @@ function App() {
         <>
             <Header />
             <div className="container">
+                <FeedbackForm />
                 <FeedbackStats feedback={feedback} />
                 <FeedbackList
                     handleDeleteFeedbackItem={deleteFeedbackItem}
