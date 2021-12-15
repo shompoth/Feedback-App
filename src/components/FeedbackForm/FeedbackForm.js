@@ -3,9 +3,11 @@ import { useState } from "react";
 // Composants
 import Card from "../../shared/Card";
 import Button from "../../shared/Button";
+import RatingSelect from "../RatingSelect/RatingSelect";
 
-function FeedbackForm() {
+function FeedbackForm({ handleAdd }) {
     const [text, setText] = useState("");
+    const [rating, setRating] = useState(10);
     const [btnDisabled, setBtnDisabled] = useState(true);
     const [message, setMessage] = useState("");
 
@@ -25,10 +27,23 @@ function FeedbackForm() {
         setText(e.target.value);
     };
 
+    const handleSubmit = e => {
+        e.preventDefault();
+        if (text.trim().length > 9) {
+            const newFeedback = {
+                text,
+                rating,
+            };
+            handleAdd(newFeedback);
+            setText("");
+        }
+    };
+
     return (
         <Card>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <h2>Quel note me donneriez-vous au sujet de mon coaching sportif ?</h2>
+                <RatingSelect handleSelectRating={num => setRating(num)} />
                 <div className="input-group">
                     <input
                         type="text"
