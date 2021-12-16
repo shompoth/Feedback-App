@@ -13,9 +13,7 @@ function AboutPage() {
                     </p>
                     <p>Version: 1.0.0</p>
                     <p>
-                        <Link exact to="/">
-                            Retour à l'accueil
-                        </Link>
+                        <Link to="/">Retour à l'accueil</Link>
                     </p>
                 </div>
             </Card>
