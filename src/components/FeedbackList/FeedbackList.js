@@ -6,16 +6,19 @@ import FeedbackContext from "../../context/FeedbackContext";
 
 // Composants
 import FeedbackItem from "./FeedbackItem/FeedbackItem";
+import Spinner from "../../shared/Spinner";
 
 function FeedbackList() {
     // Context
-    const { feedback } = useContext(FeedbackContext);
+    const { feedback, isLoading } = useContext(FeedbackContext);
 
-    if (!feedback || feedback.length === 0) {
+    if (!isLoading && (!feedback || feedback.length === 0)) {
         return <p>Pas de feedback</p>;
     }
 
-    return (
+    return isLoading ? (
+        <Spinner />
+    ) : (
         <div className="feedback-list">
             <AnimatePresence>
                 {feedback.map(item => (
